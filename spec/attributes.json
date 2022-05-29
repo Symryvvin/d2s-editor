@@ -1,0 +1,98 @@
+[
+  {
+    "id": 0,
+    "name": "strength",
+    "numberOfBits": 10,
+    "scaleCoefficient": 1
+  },
+  {
+    "id": 1,
+    "name": "energy",
+    "numberOfBits": 10,
+    "scaleCoefficient": 1
+  },
+  {
+    "id": 2,
+    "name": "dexterity",
+    "numberOfBits": 10,
+    "scaleCoefficient": 1
+  },
+  {
+    "id": 3,
+    "name": "vitality",
+    "numberOfBits": 10,
+    "scaleCoefficient": 1
+  },
+  {
+    "id": 4,
+    "name": "remaining stat points",
+    "numberOfBits": 10,
+    "scaleCoefficient": 1
+  },
+  {
+    "id": 5,
+    "name": "remaining skill points",
+    "numberOfBits": 8,
+    "scaleCoefficient": 1
+  },
+  {
+    "id": 6,
+    "name": "current life",
+    "numberOfBits": 21,
+    "scaleCoefficient": 256
+  },
+  {
+    "id": 7,
+    "name": "life",
+    "numberOfBits": 21,
+    "scaleCoefficient": 256
+  },
+  {
+    "id": 8,
+    "name": "current mana",
+    "numberOfBits": 21,
+    "scaleCoefficient": 256
+  },
+  {
+    "id": 9,
+    "name": "mana",
+    "numberOfBits": 21,
+    "scaleCoefficient": 256
+  },
+  {
+    "id": 10,
+    "name": "current stamina",
+    "numberOfBits": 21,
+    "scaleCoefficient": 256
+  },
+  {
+    "id": 11,
+    "name": "stamina",
+    "numberOfBits": 21,
+    "scaleCoefficient": 256
+  },
+  {
+    "id": 12,
+    "name": "level",
+    "numberOfBits": 7,
+    "scaleCoefficient": 1
+  },
+  {
+    "id": 13,
+    "name": "experience",
+    "numberOfBits": 32,
+    "scaleCoefficient": 1
+  },
+  {
+    "id": 14,
+    "name": "gold",
+    "numberOfBits": 25,
+    "scaleCoefficient": 1
+  },
+  {
+    "id": 15,
+    "name": "stash gold",
+    "numberOfBits": 25,
+    "scaleCoefficient": 1
+  }
+]
