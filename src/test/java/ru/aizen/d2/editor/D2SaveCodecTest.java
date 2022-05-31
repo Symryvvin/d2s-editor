@@ -3,8 +3,6 @@ package ru.aizen.d2.editor;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.BitSet;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -13,12 +11,11 @@ class D2SaveCodecTest {
     @Test
     void successfullyDecodeDiablo2ResurrectedSave() {
         final String characterName = "Character";
-        final int barbarianClassId = 4;
-        final BitSet status = new BitSet(8);
-        status.set(5);
-        status.set(2);
+        final Status status = new Status();
+        status.setExpansion();
+        status.setHardcore();
         D2Save expectedD2Save =
-                new D2Save.Builder(characterName, barbarianClassId, status)
+                new D2Save.Builder(characterName, CharacterClass.BARBARIAN, status)
                         .build();
 
         final String resourceName = "/Character.d2s";

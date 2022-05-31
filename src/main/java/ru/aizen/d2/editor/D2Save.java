@@ -6,12 +6,12 @@ import java.util.Objects;
 public class D2Save {
 
     private final String characterName;
-    private final int classId;
-    private final BitSet status;
+    private final CharacterClass characterClass;
+    private final Status status;
 
     public D2Save(Builder builder) {
         this.characterName = builder.characterName;
-        this.classId = builder.classId;
+        this.characterClass = builder.characterClass;
         this.status = builder.status;
     }
 
@@ -20,33 +20,33 @@ public class D2Save {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         D2Save d2Save = (D2Save) o;
-        return classId == d2Save.classId
+        return characterClass == d2Save.characterClass
                 && Objects.equals(characterName, d2Save.characterName)
                 && Objects.equals(status, d2Save.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(characterName, classId, status);
+        return Objects.hash(characterName, characterClass, status);
     }
 
     @Override
     public String toString() {
         return "D2Save{" +
                 "characterName='" + characterName + '\'' +
-                ", classId=" + classId +
+                ", characterClass=" + characterClass +
                 ", status=" + status +
                 '}';
     }
 
     public static class Builder {
         private final String characterName;
-        private final int classId;
-        private final BitSet status;
+        private final CharacterClass characterClass;
+        private final Status status;
 
-        public Builder(String characterName, int classId, BitSet status) {
+        public Builder(String characterName, CharacterClass characterClass, Status status) {
             this.characterName = characterName;
-            this.classId = classId;
+            this.characterClass = characterClass;
             this.status = status;
         }
 

@@ -24,19 +24,23 @@ public class D2SaveCodec {
         LOG.info("Game version value is {}", gameVersion);
         GameVersion.checkVersion(gameVersion);
 
-        LOG.info("Skip 4 byte of actual file size {} bytes", reader.readInt());
-        LOG.info("Skip 4 byte of file checksum {}", reader.readInt());
-        LOG.info("Active hand value {}. Swap weapon", reader.readByte());
+        LOG.info("File size {} bytes", reader.readInt());
+        LOG.info("Checksum = {}", reader.readInt());
+        LOG.info("Active hand '{}'", reader.readByte() == 0 ? "I" : "II");
 
         reader.skip(19);
-        BitSet status = BitSet.valueOf(new byte[]{reader.readByte()});
-        LOG.info("Bits of status value is {}", status);
+        Status status = Status.from(reader.readByte());
+        LOG.info("{}", status);
+        LOG.info("Progression {}", reader.readByte());
 
-        reader.skip(3);
-        byte characterClassId = reader.readByte();
-        LOG.info("Character class ID value is {}", characterClassId);
+        reader.skip(2);
+        CharacterClass characterClass = CharacterClass.byId(reader.readByte());
+        LOG.info("Character class is {}", characterClass.name());
 
-        reader.skip(7);
+        LOG.info("Unknown value in hex 0x101E, in bytes {}", reader.readByteArray(2));
+        LOG.info("Character level in game menu {}", reader.readByte());
+
+        reader.skip(4);
         LOG.info("Last game saved at {}", reader.readLocalDateTime());
 
         reader.skip(212);
@@ -44,7 +48,7 @@ public class D2SaveCodec {
         String characterName = reader.readString(CHARACTER_NAME_MAX_LENGTH);
         LOG.info("Character name is '{}'", characterName);
 
-        return new D2Save.Builder(characterName, characterClassId, status)
+        return new D2Save.Builder(characterName, characterClass, status)
                 .build();
     }
 
